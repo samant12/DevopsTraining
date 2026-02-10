@@ -1,0 +1,37 @@
+name: Create File Based on Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        description: 'Enter filename'
+        required: true
+        default: 'defaultname'
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check input and create file
+        run: |
+          #!/bin/bash
+
+          INPUT="${{ github.event.inputs.filename }}"
+          DEFAULT_NAME="default.txt"
+
+          # Check input length
+          LEN=${#INPUT}
+
+          if [ "$LEN" -lt 10 ]; then
+            FILE="${INPUT}.txt"
+            echo "Input length < 10, creating file named $FILE"
+            touch "$FILE"
+          else
+            FILE="$DEFAULT_NAME"
+            echo "Input length >= 10, creating file named $FILE and saving input inside"
+            echo "$INPUT" > "$FILE"
+          fi
+
+          echo "Created file: $FILE"
+        shell: bash
