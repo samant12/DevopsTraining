@@ -1,0 +1,1 @@
+./config.cmd --url https://github.com/samant12/DevopsTraining --token AOIYMIR6UFC4VEB6XJSWFM3JRLHCA
