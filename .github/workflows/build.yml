@@ -20,14 +20,8 @@ jobs:
     needs: build
     environment:
       name: dev   # Dev environment
-      url: https://dev.example.com
+      
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./deploy
-
       - name: Deploy to Dev
         run: |
           echo "Deploying to Dev..."
@@ -43,11 +37,6 @@ jobs:
       name: uat            # UAT environment
       url: https://uat.example.com
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./deploy
 
       - name: Deploy to UAT
         run: |
@@ -64,12 +53,6 @@ jobs:
       name: prod      # Prod environment
       url: https://prod.example.com
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./deploy
-
       - name: Deploy to Prod
         run: |
           echo "Deploying to Production..."
