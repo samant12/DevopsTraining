@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to Dev
         run: |
           echo "Deploying to Dev..."
-          ls ./deploy
+         
           # Add your real deployment commands here
           echo "Dev deployment completed!"
 
@@ -41,7 +41,7 @@ jobs:
       - name: Deploy to UAT
         run: |
           echo "Deploying to UAT..."
-          ls ./deploy
+         
           # Add your real deployment commands here
           echo "UAT deployment completed!"
 
@@ -56,6 +56,6 @@ jobs:
       - name: Deploy to Prod
         run: |
           echo "Deploying to Production..."
-          ls ./deploy
+         
           # Add your real deployment commands here
           echo "Production deployment completed!"
