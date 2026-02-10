@@ -11,8 +11,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Copy file
-        uses: canastro/copy-action@0.0.2
-        with:
-          source: D:/DevOps-Training/folder1/test.txt
-          target: D:/DevOps-Training/folder2
+      - name: Copy file using PowerShell
+        run: |
+          $source = "D:/DevOps-Training/folder1/test.txt"
+          $target = "D:/DevOps-Training/folder2/test.txt"
+          Copy-Item -Path $source -Destination $target -Force
+        shell: powershell
