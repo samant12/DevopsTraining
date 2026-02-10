@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: development   # Dev environment
+      name: dev   # Dev environment
       url: https://dev.example.com
     steps:
       - name: Download build artifacts
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-uat
     environment:
-      name: production      # Prod environment
+      name: prod      # Prod environment
       url: https://prod.example.com
     steps:
       - name: Download build artifacts
